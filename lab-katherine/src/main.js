@@ -5,9 +5,9 @@ import {createStore} from 'redux'
 import {Provider} from 'react-redux'
 
 import App from './component/app'
-import categoriesReducer from './reducer/categories.js'
+import reducer from './reducer'
 
-let store = createStore(categoriesReducer)
+let store = createStore(reducer)
 
 store.subscribe(() => {
   console.log('__STATE__', store.getState())
