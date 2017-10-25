@@ -20,7 +20,7 @@ export default (state=emptyState, {type, payload}) => {
         item.id === payload.id ? payload : item)
       return { ...state, [categoryID]: result }
 
-    case 'EXPENSE_REMOVE':
+    case 'EXPENSE_DELETE':
       categoryID = payload.categoryID
       categoryExpenses = state[categoryID]
       result = categoryExpenses.filter(item => item.id !== payload.id)

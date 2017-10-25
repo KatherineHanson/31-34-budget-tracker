@@ -17,6 +17,6 @@ export const update = (expense) => ({
 })
 
 export const destroy = (expense) => ({
-  type: 'EXPENSE_DESTROY',
+  type: 'EXPENSE_DELETE',
   payload: expense,
 })
