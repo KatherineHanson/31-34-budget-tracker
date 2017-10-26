@@ -35,12 +35,6 @@ class Expense extends React.Component {
             <ExpenseForm expense={expense} onComplete={this.handleUpdate} />)}
         </main>
       </div>
-      // <div className='expense-item'>
-      //   <p> {expense.name} </p>
-      //   <p> ${expense.price} </p>
-      //   <button onClick={() => expenseDestroy(expense)}> delete </button>
-      //   <ExpenseForm expense={expense} onComplete={expenseUpdate} />
-      // </div>
     )
   }
 }

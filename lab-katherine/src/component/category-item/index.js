@@ -59,21 +59,6 @@ class CategoryItem extends React.Component {
           )}
         </main>
       </div>
-      // <div className='category-item'>
-      //   <h1> Category Name and Budget </h1>
-      //   <p><strong>{category.name}</strong></p>
-      //   <p>${category.amount}</p>
-      //   <button onClick={() => categoryDestroy(category)}> X </button>
-      //
-      //     <h2> Update Category </h2>
-      //     <CategoryForm category={category} onComplete={categoryUpdate}/>
-      //
-      //     <h2> Log Expense </h2>
-      //     <ExpenseForm category={category} onComplete={expenseCreate}/>
-      //     {categoryExpenses.map((expense, i) =>
-      //       <ExpenseItem expense={expense} key={i} />
-      //     )}
-      // </div>
     )
   }
 }

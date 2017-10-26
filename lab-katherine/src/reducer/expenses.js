@@ -1,6 +1,5 @@
 const emptyState = {}
 
-// (prevState, action) => newState
 export default (state=emptyState, {type, payload}) => {
   let categoryID, categoryExpenses, result
   switch(type){
