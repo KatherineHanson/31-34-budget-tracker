@@ -3,6 +3,11 @@
   "version": "0.0.1",
   "description": "401 JS --  Lab 31 Budget Tracker ===",
   "main": "index.js",
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(svg|eof|ttf|woff|woff2|scss|gif)$": "<rootDir>/src/__test__/mock-asset.js"
+    }
+  },
   "scripts": {
     "watch": "webpack-dev-server --inline --hot",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -29,5 +34,8 @@
     "sass-loader": "^6.0.6",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.3"
+  },
+  "devDependencies": {
+    "faker": "^4.1.0"
   }
 }

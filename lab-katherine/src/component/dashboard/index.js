@@ -26,17 +26,13 @@ class Dashboard extends React.Component {
     }
   }
 
-  let mapStateToProps = (state) => {
-    return {
-      categories: state.categories,
-    }
-  }
+  let mapStateToProps = (state) => ({
+    categories: state.categories,
+  })
 
-  let mapDispatchToProps = (dispatch) => {
-    return {
-      categoryCreate: (data) => dispatch(category.create(data)),
-    }
-  }
+  let mapDispatchToProps = (dispatch) => ({
+    categoryCreate: (data) => dispatch(category.create(data)),
+  })
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
