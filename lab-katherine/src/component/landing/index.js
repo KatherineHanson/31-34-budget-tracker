@@ -22,7 +22,7 @@ class Landing extends React.Component {
         <CategoryForm onComplete={categoryCreate} />
         <div className='category-container'>
           {categories.map((category, i) =>
-            <Category key={i} category={category} />
+            <CategoryItem key={i} category={category} />
           )}
         </div>
       </div>
