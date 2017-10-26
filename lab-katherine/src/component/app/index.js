@@ -10,7 +10,7 @@ class App extends React.Component {
         <BrowserRouter>
           <div>
             <header>
-              <h1> Budger-tracker </h1>
+              <h1> Track your budget! </h1>
               <nav>
                 <ul>
                   <li> <Link to='/'> home </Link> </li>

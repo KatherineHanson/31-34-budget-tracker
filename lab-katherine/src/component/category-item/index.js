@@ -44,7 +44,7 @@ class CategoryItem extends React.Component {
         {util.renderIf(!editing,
           <div>
             <h2 onDoubleClick={() => this.setState({editing: true})}> {category.name} </h2>
-            <p onDoubleClick={() => this.setState({editing: true})}> {category.amount} </p>
+            <p onDoubleClick={() => this.setState({editing: true})}> ${category.amount} </p>
           </div>
         )}
 

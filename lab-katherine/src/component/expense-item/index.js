@@ -30,7 +30,7 @@ class Expense extends React.Component {
 
         <main onDoubleClick={() => this.setState({editing: true})}>
           {util.renderIf(!editing, <p > {expense.name} </p>)}
-          {util.renderIf(!editing, <p > {expense.price} </p>)}
+          {util.renderIf(!editing, <p > ${expense.price} </p>)}
           {util.renderIf(editing,
             <ExpenseForm expense={expense} onComplete={this.handleUpdate} />)}
         </main>
