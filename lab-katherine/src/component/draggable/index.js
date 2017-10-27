@@ -1,13 +1,13 @@
-import React from 'react'
+import React from 'react';
 
 class Draggable extends React.Component {
   constructor(props){
-    super(props)
-    this.handleDragStart = this.handleDragStart.bind(this)
+    super(props);
+    this.handleDragStart = this.handleDragStart.bind(this);
   }
 
   handleDragStart(e){
-    e.dataTransfer.setData('application/json', JSON.stringify(this.props.data))
+    e.dataTransfer.setData('application/json', JSON.stringify(this.props.data));
   }
 
   render(){
@@ -17,6 +17,6 @@ class Draggable extends React.Component {
       </div>
     )
   }
-}
+};
 
-export default Draggable
+export default Draggable;

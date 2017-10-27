@@ -1,9 +1,9 @@
-import './_dashboard.scss'
-import React from 'react'
-import {connect} from 'react-redux'
-import CategoryItem from '../category-item'
-import CategoryForm from '../category-form'
-import * as category from '../../action/category.js'
+import './_dashboard.scss';
+import React from 'react';
+import {connect} from 'react-redux';
+import CategoryItem from '../category-item';
+import CategoryForm from '../category-form';
+import * as category from '../../action/category.js';
 
 class Dashboard extends React.Component {
 
@@ -11,7 +11,7 @@ class Dashboard extends React.Component {
     let {
       categories,
       categoryCreate,
-    } = this.props
+    } = this.props;
 
     return (
       <div className='dashboard'>
@@ -24,14 +24,14 @@ class Dashboard extends React.Component {
       </div>
     )
   }
-}
+};
 
 let mapStateToProps = (state) => ({
   categories: state.categories,
-})
+});
 
 let mapDispatchToProps = (dispatch) => ({
   categoryCreate: (data) => dispatch(category.create(data)),
-})
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

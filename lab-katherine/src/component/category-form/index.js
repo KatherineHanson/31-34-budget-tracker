@@ -1,17 +1,17 @@
-import './_category-form.scss'
-import React from 'react'
+import './_category-form.scss';
+import React from 'react';
 
 let emptyState = {
   name: '',
   budget: 0 ,
-}
+};
 
 class CategoryForm extends React.Component {
   constructor(props){
-    super(props)
-    this.state = this.props.category || emptyState
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleChange = this.handleChange.bind(this)
+    super(props);
+    this.state = this.props.category || emptyState;
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentWillReceiveProps(nextProps){
@@ -21,19 +21,19 @@ class CategoryForm extends React.Component {
   }
 
   handleSubmit(e){
-    e.preventDefault()
-    this.props.onComplete(this.state)
-    this.setState(emptyState)
+    e.preventDefault();
+    this.props.onComplete(this.state);
+    this.setState(emptyState);
   }
 
   handleChange(e){
-    let {name, value, type} = e.target
-    value = type === 'number' ? Number(value) : value
-    this.setState({[name]: value})
+    let {name, value, type} = e.target;
+    value = type === 'number' ? Number(value) : value;
+    this.setState({[name]: value});
   }
 
   render(){
-    let buttonText = this.props.category ? 'update category' : 'create category'
+    let buttonText = this.props.category ? 'update category' : 'create category';
     return (
       <form
         className='category-form'
@@ -60,6 +60,6 @@ class CategoryForm extends React.Component {
     )
 
   }
-}
+};
 
-export default CategoryForm
+export default CategoryForm;

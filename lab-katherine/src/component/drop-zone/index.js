@@ -1,24 +1,23 @@
-import './_drop-zone.scss'
-import React from 'react'
+import './_drop-zone.scss';
+import React from 'react';
 
 class DropZone extends React.Component {
   constructor(props){
-    super(props)
-
-    this.handleDrop = this.handleDrop.bind(this)
-    this.handleDragOver = this.handleDragOver.bind(this)
+    super(props);
+    this.handleDrop = this.handleDrop.bind(this);
+    this.handleDragOver = this.handleDragOver.bind(this);
   }
 
   handleDragOver(e){
-    e.preventDefault()
+    e.preventDefault();
   }
 
   handleDrop(e){
     try {
-      let data = JSON.parse(e.dataTransfer.getData('application/json'))
-      this.props.onComplete(data)
+      let data = JSON.parse(e.dataTransfer.getData('application/json'));
+      this.props.onComplete(data);
     } catch (err) {
-      console.log('__BAD DRAG DATA__', err)
+      console.log('__BAD DRAG DATA__', err);
     }
   }
 
@@ -33,6 +32,6 @@ class DropZone extends React.Component {
       </div>
     )
   }
-}
+};
 
-export default DropZone
+export default DropZone;

@@ -1,7 +1,7 @@
-import './_app.scss'
-import React from 'react'
-import {BrowserRouter, Route} from 'react-router-dom'
-import Dashboard from '../dashboard'
+import './_app.scss';
+import React from 'react';
+import {BrowserRouter, Route} from 'react-router-dom';
+import Dashboard from '../dashboard';
 
 class App extends React.Component {
   render(){
@@ -20,4 +20,4 @@ class App extends React.Component {
   }
 }
 
-export default App
+export default App;

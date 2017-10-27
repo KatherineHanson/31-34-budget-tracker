@@ -1,47 +1,46 @@
-import './_expense-form.scss'
-import React from 'react'
+import './_expense-form.scss';
+import React from 'react';
 
 let emptyState = {
   name: '',
   price: 0 ,
-}
+};
 
 class ExpenseForm extends React.Component {
   constructor(props){
-    super(props)
-    this.state = props.expense || emptyState
-
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
+    super(props);
+    this.state = props.expense || emptyState;
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(e){
-    let {name, value, type} = e.target
-    value = type === 'number' ? Number(value) : value
-    this.setState({[name]: value})
+    let {name, value, type} = e.target;
+    value = type === 'number' ? Number(value) : value;
+    this.setState({[name]: value});
   }
 
   handleSubmit(e){
-    e.preventDefault()
+    e.preventDefault();
     let categoryID = this.props.category ?
       this.props.category.id :
-      this.props.expense.categoryID
+      this.props.expense.categoryID;
 
     this.props.onComplete({
       ...this.state,
       categoryID,
-    })
+    });
 
-    this.setState(emptyState)
+    this.setState(emptyState);
   }
 
   componentWillReceiveProps(nextProps){
     if(nextProps.expense)
-      this.setState(nextProps.expense)
+      this.setState(nextProps.expense);
   }
 
   render(){
-    let buttonText = this.props.expense ? 'update' : 'create'
+    let buttonText = this.props.expense ? 'update' : 'create';
     return (
       <form
         className='expense-form'
@@ -69,7 +68,6 @@ class ExpenseForm extends React.Component {
       </form>
     )
   }
+};
 
-}
-
-export default ExpenseForm
+export default ExpenseForm;

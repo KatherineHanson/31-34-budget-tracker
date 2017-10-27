@@ -1,14 +1,14 @@
-import './_category-item.scss'
-import React from 'react'
-import CategoryForm from '../category-form'
-import {connect} from 'react-redux'
-import * as category from '../../action/category.js'
-import ExpenseForm from '../expense-form'
-import ExpenseItem from '../expense-item'
-import * as expense from '../../action/expense.js'
-import faker from 'faker'
-import * as util from '../../lib/util.js'
-import DropZone from '../drop-zone'
+import './_category-item.scss';
+import React from 'react';
+import CategoryForm from '../category-form';
+import {connect} from 'react-redux';
+import * as category from '../../action/category.js';
+import ExpenseForm from '../expense-form';
+import ExpenseItem from '../expense-item';
+import * as expense from '../../action/expense.js';
+import faker from 'faker';
+import * as util from '../../lib/util.js';
+import DropZone from '../drop-zone';
 
 class CategoryItem extends React.Component {
   constructor(props){
@@ -21,7 +21,7 @@ class CategoryItem extends React.Component {
     this.props.categoryUpdate(category)
     this.setState({editing: false})
   }
-  
+
   render(){
     let {
       category,
@@ -30,10 +30,10 @@ class CategoryItem extends React.Component {
       expenseCreate,
       expenseUpdateCategory,
       expenses,
-    } = this.props
+    } = this.props;
 
-    let {editing} = this.state
-    let categoryExpenses = expenses[category.id]
+    let {editing} = this.state;
+    let categoryExpenses = expenses[category.id];
 
     return (
       <div className='category-item'>
@@ -60,17 +60,17 @@ class CategoryItem extends React.Component {
       </div>
     )
   }
-}
+};
 
 let mapStateToProps = (state) => ({
   expenses: state.expenses,
-})
+});
 
 let mapDispatchToProps = (dispatch) => ({
   categoryUpdate: (data) => dispatch(category.update(data)),
   categoryDestroy: (data) => dispatch(category.destroy(data)),
   expenseCreate: (data) => dispatch(expense.create(data)),
   expenseUpdateCategory: (data, categoryID) => dispatch(expense.updateCategoryID(data, categoryID)),
-})
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(CategoryItem)
+export default connect(mapStateToProps, mapDispatchToProps)(CategoryItem);
