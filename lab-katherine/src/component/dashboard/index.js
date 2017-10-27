@@ -6,11 +6,6 @@ import CategoryForm from '../category-form'
 import * as category from '../../action/category.js'
 
 class Dashboard extends React.Component {
-  componentWillMount(){
-    this.props.categoryCreate({name: 'groceries', budget: 100})
-    this.props.categoryCreate({name: 'clothes', budget: 100})
-    this.props.categoryCreate({name: 'manga', budget: 1000})
-  }
 
   render(){
     let {

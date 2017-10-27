@@ -21,14 +21,7 @@ class CategoryItem extends React.Component {
     this.props.categoryUpdate(category)
     this.setState({editing: false})
   }
-
-  componentWillMount(){
-    this.props.expenseCreate({name: faker.lorem.words(2) , price: faker.random.number() , categoryID: this.props.category.id})
-    this.props.expenseCreate({name: faker.lorem.words(2) , price: faker.random.number() , categoryID: this.props.category.id})
-    this.props.expenseCreate({name: faker.lorem.words(2) , price: faker.random.number() , categoryID: this.props.category.id})
-    this.props.expenseCreate({name: faker.lorem.words(2) , price: faker.random.number() , categoryID: this.props.category.id})
-  }
-
+  
   render(){
     let {
       category,
