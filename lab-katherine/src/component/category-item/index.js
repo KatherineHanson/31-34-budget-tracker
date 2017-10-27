@@ -1,3 +1,4 @@
+import './_category-item.scss'
 import React from 'react'
 import CategoryForm from '../category-form'
 import {connect} from 'react-redux'
@@ -7,6 +8,7 @@ import ExpenseItem from '../expense-item'
 import * as expense from '../../action/expense.js'
 import faker from 'faker'
 import * as util from '../../lib/util.js'
+import DropZone from '../drop-zone'
 
 class CategoryItem extends React.Component {
   constructor(props){
@@ -33,6 +35,7 @@ class CategoryItem extends React.Component {
       categoryDestroy,
       categoryUpdate,
       expenseCreate,
+      expenseUpdateCategory,
       expenses,
     } = this.props
 
@@ -41,23 +44,26 @@ class CategoryItem extends React.Component {
 
     return (
       <div className='category-item'>
-        {util.renderIf(!editing,
-          <div>
-            <h2 onDoubleClick={() => this.setState({editing: true})}> {category.name} </h2>
-            <p onDoubleClick={() => this.setState({editing: true})}> ${category.amount} </p>
-          </div>
-        )}
-
-        {util.renderIf(editing,
-          <CategoryForm category={category} onComplete={this.handleUpdate} />)}
-
-        <ExpenseForm category={category} onComplete={expenseCreate}/>
-
-        <main className='expense-container'>
-          {categoryExpenses.map((expense, i) =>
-            <ExpenseItem expense={expense} key={i} />
+        <DropZone onComplete={(expense) => expenseUpdateCategory(expense, category.id)}>
+          {util.renderIf(!editing,
+            <div>
+              <h2 onDoubleClick={() => this.setState({editing: true})}> {category.name} </h2>
+              <p onDoubleClick={() => this.setState({editing: true})}> ${category.budget} </p>
+              <button className='delete' onClick={() => categoryDestroy(category)}> delete </button>
+            </div>
           )}
-        </main>
+
+          {util.renderIf(editing,
+            <CategoryForm category={category} onComplete={this.handleUpdate} />)}
+
+          <ExpenseForm category={category} onComplete={expenseCreate}/>
+
+          <main className='expense-container'>
+            {categoryExpenses.map((expense, i) =>
+              <ExpenseItem expense={expense} key={i} />
+            )}
+          </main>
+        </DropZone>
       </div>
     )
   }
@@ -71,6 +77,7 @@ let mapDispatchToProps = (dispatch) => ({
   categoryUpdate: (data) => dispatch(category.update(data)),
   categoryDestroy: (data) => dispatch(category.destroy(data)),
   expenseCreate: (data) => dispatch(expense.create(data)),
+  expenseUpdateCategory: (data, categoryID) => dispatch(expense.updateCategoryID(data, categoryID)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CategoryItem)

@@ -7,8 +7,9 @@ import {Provider} from 'react-redux'
 import App from './component/app'
 import reducer from './reducer'
 import reporter from './lib/redux-reporter.js'
+import session from './lib/redux-session.js'
 
-let store = createStore(reducer, applyMiddleware(reporter))
+let store = createStore(reducer, applyMiddleware(session, reporter))
 
 const container = document.createElement('div')
 document.body.appendChild(container)

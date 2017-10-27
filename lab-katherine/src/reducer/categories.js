@@ -1,8 +1,8 @@
 const emptyState = []
 
 export const validateCategory = (category) => {
-  if(!category.name || !category.amount)
-    throw new Error('category expected a name and amount')
+  if(!category.name || !category.budget)
+    throw new Error('category expected a name and budget')
 }
 
 export default (state=emptyState, {type, payload}) => {

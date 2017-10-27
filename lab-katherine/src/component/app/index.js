@@ -1,7 +1,7 @@
+import './_app.scss'
 import React from 'react'
-import {BrowserRouter, Route, Link} from 'react-router-dom'
+import {BrowserRouter, Route} from 'react-router-dom'
 import Dashboard from '../dashboard'
-import Landing from '../landing'
 
 class App extends React.Component {
   render(){
@@ -11,15 +11,8 @@ class App extends React.Component {
           <div>
             <header>
               <h1> Track your budget! </h1>
-              <nav>
-                <ul>
-                  <li> <Link to='/'> home </Link> </li>
-                  <li> <Link to='/dashboard'> dashboard</Link> </li>
-                </ul>
-              </nav>
             </header>
-            <Route exact path='/' component={Landing} />
-            <Route exact path='/dashboard' component={Dashboard} />
+            <Route exact path='/' component={Dashboard} />
           </div>
         </BrowserRouter>
       </div>

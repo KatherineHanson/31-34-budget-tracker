@@ -7,6 +7,19 @@ export default (state=emptyState, {type, payload}) => {
       return { ...state, [payload.id]: [] }
     case 'CATEGORY_DESTROY':
      return { ...state, [payload.id]: undefined}
+    case 'EXPENSE_UPDATE_CATEGORY_ID':
+      let expense = payload.expense
+      let oldCategoryID = expense.categoryID
+      if(oldCategoryID == payload.categoryID)
+        return state
+      let oldCategory = state[expense.categoryID].filter(item => item.id !== expense.id)
+      expense.categoryID = payload.categoryID
+      let newCategory = [expense, ...state[payload.categoryID]]
+      return {
+        ...state,
+        [oldCategoryID]: oldCategory,
+        [expense.categoryID]: newCategory,
+      }
     case 'EXPENSE_CREATE':
       categoryID = payload.categoryID
       categoryExpenses = state[categoryID]
