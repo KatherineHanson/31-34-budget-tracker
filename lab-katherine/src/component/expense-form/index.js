@@ -3,7 +3,7 @@ import React from 'react';
 
 let emptyState = {
   name: '',
-  price: 0 ,
+  price: 1 ,
 };
 
 class ExpenseForm extends React.Component {
