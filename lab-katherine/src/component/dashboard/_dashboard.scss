@@ -3,13 +3,13 @@
 .landing {
   .category-form:first-child {
     padding: $pad;
-    border: 1px solid $color-blue;
+    border: 1px solid $color-golden;
     margin-bottom: $pad;
   }
 
   .category-container {
     height: calc(100vh - 8em);
-    border: 1px solid $color-blue;
+    border: 1px solid $color-golden;
     padding: $pad;
 
     .category {

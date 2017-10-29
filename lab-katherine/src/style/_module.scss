@@ -5,7 +5,7 @@
     margin: 1.414em 0 0.5em;
     font-weight: inherit;
     line-height: 1.2;
-    color: $color-black;
+    color: $color-pumpkin;
   }
 
   h1 {
@@ -32,10 +32,10 @@
   a {
     text-decoration: underline;
     font-family: sans-serif;
-    color: $color-blue;
+    color: $color-golden;
 
-    &:hover { color: $color-blue * 0.8; }
-    &:active { color: $color-blue * 0.5; }
+    &:hover { color: $color-golden * 0.8; }
+    &:active { color: $color-golden * 0.5; }
     &:visited { color:  $color-cream * 0.8; }
   }
 
@@ -51,17 +51,17 @@
 
   button {
     padding: $pad;
-    background-color: $color-blue;
+    background-color: $color-golden;
     color: $color-white;
 
-    &:hover { background-color: $color-blue * 0.8; }
-    &:focus { background-color: $color-blue * 0.8; }
-    &:active { background-color: $color-blue* 0.5; }
+    &:hover { background-color: $color-golden * 0.8; }
+    &:focus { background-color: $color-golden * 0.8; }
+    &:active { background-color: $color-golden* 0.5; }
   }
 
     input {
       padding: $pad;
       outline: 1px solid #abc;
-      &:focus { outline: 1px solid $color-blue; }
+      &:focus { outline: 1px solid $color-golden; }
     }
 }

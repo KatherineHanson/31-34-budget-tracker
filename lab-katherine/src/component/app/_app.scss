@@ -4,6 +4,10 @@
   padding: $pad * 2;
 }
 
+h1 {
+  color: $color-grey;
+}
+
 @media screen and (min-width: 960px){
   .app {
     width: 960px;
