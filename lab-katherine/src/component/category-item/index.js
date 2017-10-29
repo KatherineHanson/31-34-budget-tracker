@@ -40,9 +40,8 @@ class CategoryItem extends React.Component {
         <DropZone onComplete={(expense) => expenseUpdateCategory(expense, category.id)}>
           {util.renderIf(!editing,
             <div>
-              <h2 onDoubleClick={() => this.setState({editing: true})}> {category.name} </h2>
-              <p onDoubleClick={() => this.setState({editing: true})}> ${category.budget} </p>
-              <button className='delete' onClick={() => categoryDestroy(category)}> delete </button>
+              <h2 onDoubleClick={() => this.setState({editing: true})}> {category.name}: ${category.budget} </h2>
+              <button className='delete' onClick={() => categoryDestroy(category)}> <span> delete </span> </button>
             </div>
           )}
 
