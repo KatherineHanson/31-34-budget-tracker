@@ -1,4 +1,4 @@
-const emptyState = [];
+let emptyState = [];
 
 export const validateCategory = (category) => {
   if(!category.name || !category.budget)

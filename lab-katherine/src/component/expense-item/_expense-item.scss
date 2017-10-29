@@ -1,6 +1,6 @@
 @import 'vars';
 
-.card {
+.expense {
 
   .edit, .delete {
     float: left;
@@ -20,7 +20,7 @@
     padding-top: 1.5em;
   }
 
-  .card-form, textarea {
+  .expense-form, textarea {
     border: none !important;
   }
 

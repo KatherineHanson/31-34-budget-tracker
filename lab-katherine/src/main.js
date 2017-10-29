@@ -6,8 +6,8 @@ import {Provider} from 'react-redux'
 
 import App from './component/app'
 import reducer from './reducer'
-import reporter from './lib/redux-reporter.js'
 import session from './lib/redux-session.js'
+import reporter from './lib/redux-reporter.js'
 
 let store = createStore(reducer, applyMiddleware(session, reporter))
 

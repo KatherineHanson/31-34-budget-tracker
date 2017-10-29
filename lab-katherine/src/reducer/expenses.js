@@ -1,4 +1,4 @@
-const emptyState = {};
+let emptyState = {};
 
 export const validateExpense = (expense) => {
   if(!expense.name || !expense.price)
