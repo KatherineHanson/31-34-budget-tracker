@@ -1,82 +1,72 @@
 401 JS --  Lab 31 Budget Tracker
 ===
 
-## Submission Instructions
-  * Work in a fork of this repository
-  * Work in a branch on your fork
-  * Write all of your code in a directory named `lab-` + `<your name>` **e.g.** `lab-susan`
-  * Submit a pull request to this repository
-  * Submit a link to your pull request on canvas
-  * Submit a question, observation, and how long you spent on canvas  
-  
-## Requirements  
-#### Configuration  
-Your lab directory must include  
-* **README.md** -- with a documention about your lab
-* **.babelrc** -- with all dependencies and dev-dependencies 
-* **.eslintrc** -- with the class .eslintrc file
-* **.gitignore** -- with a robust gitignore
-* **.eslintignore** -- with the class .eslintignore
-* **package.json** -- with all dependencies and dev-dependencies 
-* **webpack.config.js** -- with webpack config
-* **src/** -- containing the front end code
-* **src/main.js** -- containing the entire app
-* **src/style** -- containing your sass
-* **src/style/main.scss** -- for importing and including reset and base
+## About
+This is a budget-tracking app that one can use to create, track, and remove budgeting categories and expenses within those categories. One can also drag and drop expenses from one category to another.
 
-## Feature Tasks 
-#### Category 
-* in this app a category should contain at least the following properties
-  * `id` a uuid
-  * `timestamp` a date from when the category was created
-  * `name` a string that is the name of the category
-  * `budget` a number that is the total amount of $ in the category 
-  * fell free to add more to your categories if you want
+## Starting The App's Webpack
+* start: `npm run watch`
 
-#### redux
-###### reducer
-* create a category reducer in your your reducer direcoty
-* this reducer should support the following interactions 
-  * `CATEGORY_CREATE`
-  * `CATEGORY_UPDATE`
-  * `CATEGORY_DESTORY`
-
-###### action creators
-* you should create an action createor for each interaction supported by your category reducer
-
-#### Components
-Create the following components and structure them according to the following diagram.  
+#### App Structure
 ```
 Provider
-  App 
+  App
     BrowserRouter
       Route / Dashboard
-        CategoryForm -- for creating categorys
-        [Category Item]
-           CategoryForm  -- for updating categorys
+        CategoryForm -- for creating categories
+        [Category Item] -- list of Category items
+           Dropzone
+             CategoryForm  -- for updating categories
+             ExpenseForm -- for creating expenses
+             [ExpenseItem]  -- list of expense items
+                Draggable
+                  ExpenseForm -- for updating an expense
 ```
 
-###### App Component 
-The App component should setup the single page applicaion routes
+## Components
+###### App Component
+* Should set up the single page application routes
 
-###### Dashboard Component 
-* should be displayed on the `/` route
-* should use react-redux's `connect` to map state and dispatchable methods to props
+###### Dashboard Component
+* Manages the entire `application state`
+* Should display on the `/` route
+* Should use react-redux's `connect` to map state and dispatch methods to props
 * should display a `CategoryForm` for adding categories to the app state
 * should display a `CategoryItem` for each category in the app state
 
 ###### CategoryForm Component
-* should expect an `onComplete` prop to be a function
-  * that function should be invoked with the CategoryForms State when the form is submited
-* should support and optional `category` prop that will initialize the state of the form
+* Should expect an `onComplete` prop to be a function
+  * That function should be invoked with the `CategoryForm` state when the form is submitted
+* Should support and optional `category` prop that will initialize the state of the form
 
 ###### CategoryItem Component
-* should display the category's name and budget
-* should recive a category prop from Dashbaord
-* should display a delete button
+* Should display the category's name and budget
+* Should receive a category prop from Dashbaord
+* Should display a delete button
   * `onClick` the category should be removed from the application state
-* should display a CategoryForm  
+* Should display a CategoryForm  
   * `onComplete` the form should update the component in the application state
+* Should add an ExpenseForm to the category item that enables the user to create expenses on the app state
+* Displays list of all the ExpenseItems belonging to the category
+* The contents of each CategoryItem should be wrapped in a Drop-zone
+* When the `onComplete` of a Drop-zone is fired, the expense should be updated so that it appears on the correct category
 
-##  Documentation  
-Write a description of the project in your README.md
+##### ExpenseForm Component
+* Should have an `onComplete` prop that will be invoked with the form state on submit
+* Should support create and update functionality
+
+##### ExpenseItem Component
+* Should have a button that will delete the expense from the appState `onClick`
+* Should display the `name` and `price` of the component
+* Should display an ExpenseForm that will enable the user to update the expense in the app state
+* The contents of each ExpenseItem should be wrapped in a Draggable
+* Expense data should be passed into the Draggables `dataTransferItem` prop
+
+###### Draggable Component
+* Enables users to drag its children
+* Stores data passed into its `dataTransferItem` prop on the event handler for `onDragStart`
+  * data should be stored as json under the MIME 'application/json'
+
+###### Drop-zone Component
+* Enables users to drop a Draggable component
+* `onDrop`, it should invoke a callback with the data passed using the events `dataTransferObject`
